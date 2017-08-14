@@ -12,7 +12,7 @@ const RouterComponent = () => {
         component={SearchWeather}
         title="Search"
          />
-      <Scene key="weather" component={Weather} title="Today's weather" initial/>
+      <Scene key="weather" component={Weather} title="Today's weather"/>
      </Scene>
       </Router>
   )

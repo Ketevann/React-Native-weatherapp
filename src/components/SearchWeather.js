@@ -6,20 +6,19 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+
   StyleSheet,
   Text,
   View,
-  TextInput,
-  TouchableHightLight
+  AsyncStorage
 } from 'react-native';
 import { Button } from './Button'
 import { Weather } from './Weather'
-import { saveWeather } from '../actions/weatherActions';
+//import { saveWeather } from '../actions/weatherActions';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-
+import {saveWeather,getLocation} from '../actions'
 
 var SearchBar = require('react-native-search-bar');
 
@@ -32,6 +31,11 @@ class SearchWeather extends Component {
   }
   componentDidMount() {
     this.refs.searchBar.focus();
+
+  }
+  componentWillMount(){
+  this.props.getLocation();
+
   }
   constructor(props) {
     super(props);
@@ -64,6 +68,7 @@ class SearchWeather extends Component {
   }
 
   render() {
+    {console.log("ths.r", this.props)}
     return (
 
         <View style={styles.SearchBarStyle}>
@@ -98,4 +103,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default connect(null, { saveWeather })(SearchWeather)
+export default connect(null, { saveWeather, getLocation })(SearchWeather)

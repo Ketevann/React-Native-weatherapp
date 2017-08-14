@@ -1,6 +1,6 @@
 import {GET_WEATHER} from '../types'
 
 
-export default weatherReducer = (weather=null, action) =>{
+export const weatherReducer = (weather=null, action) =>{
   return null
 }

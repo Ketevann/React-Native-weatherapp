@@ -1,7 +1,17 @@
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { Button } from './Button';
 
+import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+
+const tableHead = ['Head', 'Head2', 'Head3', 'Head4', 'Head5'];
+    const tableData = [
+      ['1', '2', '3', '4'],
+      ['a', 'b', 'c', 'd'],
+      ['a', 'b', 'c', 'd'],
+      ['a', 'b', 'c', 'd'],
+      ['a', 'b', 'c', 'd'],
+    ];
 
 class Weather extends Component {
   // console.log(props, 'props')
@@ -35,15 +45,14 @@ class Weather extends Component {
   render() {
 
     const { textStyle, viewStyle, buttonTextStyle } = styles
-    const {temp} = this.props.temp
     return (
-      <View
+      <ScrollView
         style={viewStyle}
       >
         <Text style={{ fontSize: 40, alignSelf: 'center', paddingTop: 10 }}>Location</Text>
         <Text
           style={textStyle}
-        >{this.renderTemp(temp)}</Text>
+        >{this.renderTemp(287)}</Text>
         <Text
           style={{ fontSize: 22, alignSelf: 'center' }}
         >Max: 10 Min: 20</Text>
@@ -65,18 +74,23 @@ class Weather extends Component {
             F
       </Button>
         </View>
+<View>
+<Table>
+          <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
+          <Rows data={tableData} style={styles.row} textStyle={styles.text}/>
+        </Table>
+</View>
 
 
 
-
-      </View>
+      </ScrollView>
     );
   };
 }
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#a04fcc',
+    backgroundColor: 'orange',
     flex: 1
   },
   textStyle: {
@@ -90,6 +104,9 @@ const styles = {
     fontSize: 40,
     padding: 10
 
-  }
+  },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { marginLeft: 5 },
+  row: { height: 30 }
 }
 export { Weather }
