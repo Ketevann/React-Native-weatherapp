@@ -12,15 +12,15 @@ import {createLogger} from 'redux-logger'
 class App extends React.Component {
 
   componentWillMount(){
-    var config = {
-    apiKey: "AIzaSyBFEKUlxymg0veAKizVmM3MrYTkLqa6bsQ",
-    authDomain: "weatherapp-6d93d.firebaseapp.com",
-    databaseURL: "https://weatherapp-6d93d.firebaseio.com",
-    projectId: "weatherapp-6d93d",
-    storageBucket: "weatherapp-6d93d.appspot.com",
-    messagingSenderId: "307513143297"
-  };
-  firebase.initializeApp(config);
+  //   var config = {
+  //   apiKey: "AIzaSyBFEKUlxymg0veAKizVmM3MrYTkLqa6bsQ",
+  //   authDomain: "weatherapp-6d93d.firebaseapp.com",
+  //   databaseURL: "https://weatherapp-6d93d.firebaseio.com",
+  //   projectId: "weatherapp-6d93d",
+  //   storageBucket: "weatherapp-6d93d.appspot.com",
+  //   messagingSenderId: "307513143297"
+  // };
+  // firebase.initializeApp(config);
   };
 
   render(){
@@ -33,7 +33,9 @@ class App extends React.Component {
     )
     return(
       <Provider store={store}>
+
         <Router />
+
       </Provider>
 
     )

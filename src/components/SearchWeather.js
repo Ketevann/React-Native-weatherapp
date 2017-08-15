@@ -21,22 +21,24 @@ import { connect } from 'react-redux';
 import {saveWeather,getLocation} from '../actions'
 
 var SearchBar = require('react-native-search-bar');
+var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
 
 class SearchWeather extends Component {
-  componentDidMount() {
-    console.log('axiiiiooos')
-    axios.get('https://api.openweathermap.org/data/2.5/weather\?q\=London,uk\&appid\=edeb9d88dfd1310c9f8688589c73915b')
-      .then(res => { console.log(res.data, 'tesss') })
-      .catch(err => console.log(err))
-  }
+
+  // componentDidMount() {
+  //   console.log('axiiiiooos')
+  //   axios.get('https://api.openweathermap.org/data/2.5/weather\?q\=London,uk\&appid\=edeb9d88dfd1310c9f8688589c73915b')
+  //     .then(res => { console.log(res.data, 'tesss') })
+  //     .catch(err => console.log(err))
+  // }
   componentDidMount() {
     this.refs.searchBar.focus();
-
+// AsyncStorage.getItem('name').then((value) ⇒ this.setState({ 'name': value }))
   }
-  componentWillMount(){
-  this.props.getLocation();
+  // componentWillMount(){
+  // this.props.getLocation();
 
-  }
+  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -65,6 +67,8 @@ class SearchWeather extends Component {
     //   })
     //   .catch(err => console.log(err))
 
+
+
   }
 
   render() {
@@ -80,6 +84,9 @@ class SearchWeather extends Component {
             onCancelButtonPress={(text) => console.log(text)}
 
           />
+
+
+
       </View>
     );
   }
