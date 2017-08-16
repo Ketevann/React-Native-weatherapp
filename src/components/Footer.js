@@ -15,9 +15,9 @@ class Footer extends Component {
           }
           />
           <BottomToolbar.Action
-            title="Copy ULR"
-            onPress={(index, propsOfThisAction) =>
-              console.warn(index + ' ' + JSON.stringify(propsOfThisAction))}
+            title="Saved"
+            onPress={() =>
+              Actions.saved()}
           />
           <BottomToolbar.Action
             title="Delete"

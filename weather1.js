@@ -27,10 +27,10 @@ class DisplayWeather extends Component {
 
   }
 
-  // componentWillMount() {
-  //   this.props.getLocation();
+  componentWillMount() {
+    this.props.getLocation();
 
-  // }
+  }
   onCelTempPress() {
     this.setState({ far: false, cel: true, celColor: 'white', farColor: 'black' })
   }
@@ -67,7 +67,51 @@ class DisplayWeather extends Component {
 
     return (
       <ScrollView>
-     <Footer />
+      <Text>111</Text>
+        {this.props.geoLocation.current === '' ? null :
+          <ScrollView
+            style={viewStyle}
+          >
+
+
+            <Text style={{ fontSize: 40, alignSelf: 'center', paddingTop: 10 }}>{name}</Text>
+
+            <Text
+              style={textStyle}
+            >{this.renderTemp(this.props.geoLocation.current.main.temp)}</Text>
+            <Text
+              style={{ fontSize: 22, alignSelf: 'center' }}
+            >Max: {this.props.geoLocation.current.main.temp_min} Min: {this.props.geoLocation.current.main.temp_max}</Text>
+
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }} >
+              <Button onPress={this.onCelTempPress.bind(this)}
+                style={{
+                  fontSize: 40,
+                  padding: 10, color: this.state.celColor
+                }}>
+                C
+      </Button>
+
+              <Text style={buttonTextStyle}>/</Text>
+              <Button onPress={this.onFarTempPress.bind(this)}
+                style={{
+                  fontSize: 40,
+                  padding: 10, color: this.state.farColor
+                }}>
+                F
+      </Button>
+            </View>
+
+            <View>
+              <Table>
+                <Row data={tableHead} style={styles.head} textStyle={styles.text} />
+                <Rows data={tableData} style={styles.row} textStyle={styles.text} />
+              </Table>
+            </View>
+            <Footer />
+
+          </ScrollView>
+        }
       </ScrollView>
     );
   };
