@@ -23,19 +23,14 @@ export const saveWeather = (text) =>
     AsyncStorage
       .getItem('location')
       .then(favs => {
-        //console.log('lcocation!!!', location, typeof favs, favs)
         favs = favs == null ? [] : JSON.parse(favs)
 
         favs.push(text)
         // for (var i = 0; i< favs.length; i++)
-        //  console.log(favs[i])
-        console.log('lcocation!!!', favs)
+
          dispatch({type: SAVE_LOCATION, favs})
-        console.log(favs, 'array in getting', JSON.stringify(favs), ' strinified', favs.toString(), 'second')
         return AsyncStorage.setItem('location', JSON.stringify(favs))
         // AsyncStorage.removeItem('location')
-        // console.log(     AsyncStorage
-        // .getItem('location')
       })
 
 
@@ -61,28 +56,22 @@ export const getSavedLocations = () =>
       .then(favs => {
       favs = favs == null ? [] : JSON.parse(favs)
 
-          console.log(favs, 'favs!')
           dispatch({ type: FETCH_LOCATIONS, favs })
 
       })
 
 export const deleteLocations = (element) =>
   dispatch => {
-    console.log('getting here')
     const arr = [1]
     AsyncStorage
       .getItem('location')
       .then(favs => {
-        console.log(favs, 'FAVVV', typeof JSON.parse(JSON.parse(favs)))
         const index = JSON.parse(favs).indexOf(element)
-        console.log('index', index, Array.isArray(favs), JSON.parse(favs))
         //var temp = JSON.parse(favs).slice(0)
         //temp.splice(index, 1)
         const temp = 1
-        console.log(temp, 'temp')
         // JSON.parse(favs).splice(index, 1)
         //favs = JSON.stringify(temp)
-        console.log(favs, 'FAVVV', temp)
 
         //return AsyncStorage.setItem('location', JSON.stringify(favs))
 

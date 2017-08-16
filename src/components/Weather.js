@@ -57,7 +57,6 @@ class DisplayWeather extends Component {
   //    this.dataSource = ds.cloneWithRows(employees);
 
   render() {
-    { console.log(this.props, ' weather props', this.props.geoLocation.current.main) }
     if (this.props.current = '') return null
     const { textStyle, viewStyle, buttonTextStyle } = styles
     const { temp_min, temp_max, name } = this.props.geoLocation.current
