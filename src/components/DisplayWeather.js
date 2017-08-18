@@ -7,7 +7,7 @@ import { pickImage } from '../pickImage'
 var Dimensions = require('Dimensions')
 var { width, height } = Dimensions.get('window')
 
-const colors = ['#ffb5f7', '#55dded', '#50b6e5', '#19b6ff', '#b5ffa8', '#ff5e5e', '#ff905e', '#ffd84f', '#9fe22b', '#e22a2e', '#ce47ff']
+const colors = ['#ffb5f7', '#55dded', '#50b6e5', '#19b6ff', '#b5ffa8', '#ff5e5e', '#ff905e', '#ffd84f', '#9fe22b', '#e22a2e']
 var item = colors[Math.floor(Math.random() * colors.length)];
 
 
@@ -15,17 +15,17 @@ class DisplayWeather extends Component {
   state = {
     cel: true,
     far: false,
-    celColor: 'blue',
+    celColor: 'white',
     farColor: 'black'
 
   }
 
   onCelTempPress() {
-    this.setState({ far: false, cel: true, celColor: 'blue', farColor: 'black' })
+    this.setState({ far: false, cel: true, celColor: 'white', farColor: 'black' })
   }
 
   onFarTempPress() {
-    this.setState({ far: true, cel: false, celColor: 'black', farColor: 'blue' })
+    this.setState({ far: true, cel: false, celColor: 'black', farColor: 'white' })
   }
 
   renderTemp(K) {
@@ -51,6 +51,7 @@ class DisplayWeather extends Component {
         return pickImage['few clouds']
       case 'shower rain':
       case 'rain':
+      case "light rain":
         return pickImage.rain
       case 'thunderstorm':
         return pickImage.thunderstorm
