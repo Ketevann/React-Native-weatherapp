@@ -6,8 +6,7 @@
 
 import React, { Component } from 'react';
 import {View, AppRegistry} from 'react-native';
-import Router from './Router'
 
-import App from './App'
+import App from './src/App'
 
 AppRegistry.registerComponent('test', () => App);
