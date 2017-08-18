@@ -1,14 +1,17 @@
 import React from 'react';
 import {Scene, Router, Actions} from 'react-native-router-flux';
-import Weather from './src/components/Weather'
+import GeoLocation from './src/components/GeoLocation'
+import SavedLocationWeather from './src/components/SavedLocationWeather'
 import SearchWeather from './src/components/SearchWeather'
 import SavedLocations from './src/components/SavedLocations'
+import SearchLocationWeather from './src/components/SearchLocationWeather'
+
 
 import {View} from 'react-native';
 
 const RouterComponent = () => {
   return(
-    <Router sceneStyle={{paddingTop: 65}}>
+    <Router>
       <Scene key="main">
         <Scene
         key="search"
@@ -16,8 +19,11 @@ const RouterComponent = () => {
         title="Search"
 
          />
-      <Scene key="weather" component={Weather} title="Today's weather"  initial/>
+      <Scene key="current" component={GeoLocation} title="Today's weather"  initial/>
+      <Scene key="displayweather" component={SavedLocationWeather} title="weather"  />
       <Scene key="saved" component={SavedLocations} title="Saved Locations" />
+      <Scene key="displaySearchedWeather" component={SearchLocationWeather} title="Saved Locations" />
+
 
      </Scene>
 

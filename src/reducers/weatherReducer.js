@@ -4,18 +4,19 @@ import {GET_WEATHER,
 } from '../types'
 
 const INITIAL_STATE = {
-  location: []
+  location: [],
+
 }
 
-export const weatherReducer = (weather = INITIAL_STATE, action) =>{
+export const weatherReducer = (weather =[], action) =>{
   switch(action.type){
     case SAVE_LOCATION:
-    console.log(action, "ACT", action.favs)
-      return {...weather, location:[...weather.location, action.favs]}
+    console.log(action, "ACTION!!!!", action.favs, weather.location)
+      return {...weather, location:action.favs}
        case FETCH_LOCATIONS:
-    console.log(action, "ACT", action, typeof action.favs)
-      return action.favs
+    console.log(action, "ACT***********", action, typeof action.res)
+      return action.res
   }
 
-  return INITIAL_STATE
+  return weather
 }

@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { Button } from './Button';
-import { Footer } from './Footer'
+import  Footer  from './Footer'
 import { getLocation } from '../actions'
 import { connect } from 'react-redux';
 import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
@@ -16,7 +16,7 @@ const tableData = [
   ['a', 'b', 'c', 'd'],
 ];
 
-class DisplayWeather extends Component {
+class Weather extends Component {
   // console.log(props, 'props')
 
   state = {
@@ -94,4 +94,4 @@ const styles = {
   row: { height: 30 }
 }
 
-export default connect(({ geoLocation }) => ({ geoLocation: geoLocation }), { getLocation })(DisplayWeather)
+export default connect(({ geoLocation }) => ({ geoLocation: geoLocation }), { getLocation })(Weather)

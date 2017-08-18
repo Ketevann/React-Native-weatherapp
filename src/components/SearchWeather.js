@@ -72,7 +72,6 @@ class SearchWeather extends Component {
   }
 
   render() {
-    {console.log("ths.r", this.props)}
     return (
 
         <View style={styles.SearchBarStyle}>

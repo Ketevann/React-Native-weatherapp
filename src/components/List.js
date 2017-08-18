@@ -2,42 +2,57 @@ import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 import Swipeout from 'react-native-swipeout';
-import {deleteLocations} from '../actions'
-const prop= 's'
+import { deleteLocations, getWeather } from '../actions'
+const prop = 's'
+import { Button } from './Button'
+import { Actions } from 'react-native-router-flux';
 
+class List extends Component {
 
-const List = (props) => {
-  console.log(props, 'props')
-  var swipeoutBtns = [
-  {
-    text: 'Delete',
-    type: 'delete',
-    onPress: () =>{
-       props.deleteLocations(props.weather)
-       console.log('yes', props)}
+  onPress(){
+  const {currentweather} = this.props
+    console.log(this.props,' this.props ********************')
+     this.props.getWeather(currentweather)
   }
-]
-  console.log('LIST PTOPS', props)
-  const { ListTextStyle } = styles
-  return (
 
-    <View  style={{flex: 1}}>
-    <Swipeout
+  render() {
 
-    style={{backgroundColor: 'white'}}
-     right={swipeoutBtns}>
-      <View>
-        <TouchableWithoutFeedback>
+    var swipeoutBtns = [
+      {
+        text: 'Delete',
+        type: 'delete',
+        onPress: () => {
+          this.props.deleteLocations(this.props.weather)
+          console.log('yes', this.props)
+        }
+      }
+    ]
+    console.log('LIST PTOPS', this.props)
+    const { ListTextStyle } = styles
+    return (
 
-        <Text style={ListTextStyle}>{props.weather}</Text>
-        </TouchableWithoutFeedback>
+      <View style={{ flex: 1 }}>
+        <Swipeout
+
+          style={{ backgroundColor: 'white' }}
+          right={swipeoutBtns}>
+          <View>
+
+            <Text
+              onPress={this.onPress.bind(this)}
+              style={ListTextStyle}
+            >
+              {this.props.currentweather
+}  {this.props.degrees}
+            </Text>
+          </View>
+        </Swipeout>
       </View>
-    </Swipeout>
-       </View>
 
 
 
-  )
+    )
+  }
 }
 const styles = {
   ListTextStyle: {
@@ -50,7 +65,9 @@ const styles = {
   }
 }
 
-export default connect(null, {deleteLocations})(List)
+export default connect(null,
+{ deleteLocations,
+getWeather })(List)
 
 
 
