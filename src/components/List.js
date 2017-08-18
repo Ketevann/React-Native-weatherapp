@@ -10,8 +10,8 @@ import { Actions } from 'react-native-router-flux';
 class List extends Component {
 
   onPress() {
-    const { currentweather } = this.props
-    this.props.getWeather(currentweather)
+    const { currentWeather } = this.props
+    this.props.getWeather(currentWeather)
   }
 
   render() {

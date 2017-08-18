@@ -11,9 +11,9 @@ const INITIAL_STATE = {
 export const weatherReducer = (weather =[], action) =>{
   switch(action.type){
     case SAVE_LOCATION:
-      return {...weather, location:action.favs}
+      return {...weather, location:action.places}
        case FETCH_LOCATIONS:
-      return action.favs
+      return action.places
   }
 
   return weather

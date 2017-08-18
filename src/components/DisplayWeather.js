@@ -115,7 +115,7 @@ class DisplayWeather extends Component {
             F
       </Button>
         </View>
-        <View style={{ marginTop: height - 500 }}>
+        <View style={{ marginTop: height - 490}}>
           <Footer />
         </View>
       </ScrollView>
