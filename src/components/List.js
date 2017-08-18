@@ -42,8 +42,8 @@ class List extends Component {
               onPress={this.onPress.bind(this)}
               style={ListTextStyle}
             >
-              {this.props.currentweather
-}  {this.props.degrees}
+              {this.props.currentWeather
+}
             </Text>
           </View>
         </Swipeout>

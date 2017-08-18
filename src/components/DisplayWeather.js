@@ -110,7 +110,7 @@ class DisplayWeather extends Component {
             style={{
               fontSize: 40,
               padding: 10,
-              color: this.state.celColor
+              color: this.state.farColor
             }}>
             F
       </Button>

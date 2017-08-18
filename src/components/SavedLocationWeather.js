@@ -1,23 +1,10 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { Component } from 'react';
-import { Button } from './Button';
-import  Footer  from './Footer'
-import { getLocation } from '../actions'
 import { connect } from 'react-redux';
-import { Table, TableWraper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-import { Actions } from 'react-native-router-flux';
 import DisplayWeather from './DisplayWeather';
-const tableHead = ['Head', 'Head2', 'Head3', 'Head4', 'Head5'];
-const tableData = [
-  ['1', '2', '3', '4'],
-  ['a', 'b', 'c', 'd'],
-  ['a', 'b', 'c', 'd'],
-  ['a', 'b', 'c', 'd'],
-  ['a', 'b', 'c', 'd'],
-];
+
 
 class SavedLocationWeather extends Component {
-  // console.log(props, 'props')
 
   state = {
     cel: true,
@@ -27,15 +14,7 @@ class SavedLocationWeather extends Component {
 
   }
 
-  componentWillMount() {
-   // this.props.getLocation();
-
-  }
-
-
-
   render() {
-        {console.log(this.props,' savesweather props!********')}
 
     if (!this.props.temp) return null
      const {selectedLocation} = this.props.temp
@@ -53,4 +32,4 @@ class SavedLocationWeather extends Component {
 
 
 
-export default connect(({ temp }) => ({ temp: temp }), { getLocation })(SavedLocationWeather)
+export default connect(({ temp }) => ({ temp: temp }), null)(SavedLocationWeather)
