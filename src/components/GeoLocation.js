@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { Component } from 'react';
-import  Footer  from './Footer'
+import Footer from './Footer'
 import { getLocation } from '../actions'
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -8,7 +8,7 @@ import DisplayWeather from './DisplayWeather';
 
 class GeoLocation extends Component {
 
- componentWillMount() {
+  componentWillMount() {
     this.props.getLocation();
 
   }
@@ -16,15 +16,14 @@ class GeoLocation extends Component {
     if (!this.props.geoLocation.current.main) return null
     const { textStyle, viewStyle, buttonTextStyle } = styles
     const { name } = this.props.geoLocation.current
-    const {description} = this.props.geoLocation.current.weather[0]
-      const { temp_min, temp_max, temp } = this.props.geoLocation.current.main
+    const { description } = this.props.geoLocation.current.weather[0]
+    const { temp_min, temp_max, temp } = this.props.geoLocation.current.main
 
-    {console.log(this.props, ' wather props', this.props.geoLocation.current.main,  temp_min)}
     return (
       <View style={viewStyle}>
-      <DisplayWeather name={name} currentTemp={temp} temp_min={temp_min} temp_max={temp_max}
-      description={description}
-       />
+        <DisplayWeather name={name} currentTemp={temp} temp_min={temp_min} temp_max={temp_max}
+          description={description}
+        />
       </View>
     );
   };

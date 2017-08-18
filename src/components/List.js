@@ -9,10 +9,9 @@ import { Actions } from 'react-native-router-flux';
 
 class List extends Component {
 
-  onPress(){
-  const {currentweather} = this.props
-    console.log(this.props,' this.props ********************')
-     this.props.getWeather(currentweather)
+  onPress() {
+    const { currentweather } = this.props
+    this.props.getWeather(currentweather)
   }
 
   render() {
@@ -23,11 +22,9 @@ class List extends Component {
         type: 'delete',
         onPress: () => {
           this.props.deleteLocations(this.props.weather)
-          console.log('yes', this.props)
         }
       }
     ]
-    console.log('LIST PTOPS', this.props)
     const { ListTextStyle } = styles
     return (
 
@@ -43,7 +40,7 @@ class List extends Component {
               style={ListTextStyle}
             >
               {this.props.currentWeather
-}
+              }
             </Text>
           </View>
         </Swipeout>
@@ -66,8 +63,10 @@ const styles = {
 }
 
 export default connect(null,
-{ deleteLocations,
-getWeather })(List)
+  {
+    deleteLocations,
+    getWeather
+  })(List)
 
 
 

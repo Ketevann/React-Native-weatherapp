@@ -70,7 +70,7 @@ class DisplayWeather extends Component {
     const { selectedLocation } = this.props.temp,
      { textStyle, viewStyle,
       buttonTextStyle, ScrollViewStyle,
-      viewTextStyle, buttonOnPressStyle,
+      viewTextStyle,
        imageDegreeStyle,
       placeNameStyle,
       weatherImageStyle } = styles

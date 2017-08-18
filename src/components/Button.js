@@ -7,7 +7,6 @@ import {
 class Button extends Component {
 
   render(){
-    {console.log('props', this.props, this.props.onPress)}
     return(
     <View>
       <Text

@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 export const temp = (weather = INITIAL_STATE, action) =>{
   switch(action.type){
    case GET_WEATHER:
-       console.log(action, "ACT",  action.data)
         return {...weather, selectedLocation: action.data}
   }
 

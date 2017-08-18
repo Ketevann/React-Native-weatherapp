@@ -18,12 +18,7 @@ var { GooglePlacesAutocomplete } = require('react-native-google-places-autocompl
 
 class SearchWeather extends Component {
 
-  // componentDidMount() {
-  //   console.log('axiiiiooos')
-  //   axios.get('https://api.openweathermap.org/data/2.5/weather\?q\=London,uk\&appid\=edeb9d88dfd1310c9f8688589c73915b')
-  //     .then(res => { console.log(res.data, 'tesss') })
-  //     .catch(err => console.log(err))
-  // }
+
   componentDidMount() {
     this.refs.searchBar.focus();
   }
